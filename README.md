@@ -19,7 +19,7 @@ This project is a full-stack application built with MongoDB, Express, React (Nex
 To get started, clone the repository and install the dependencies for both the backend and frontend.
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/JScult/JEWC.git
 cd JEWC
 
 ## Backend Setup
