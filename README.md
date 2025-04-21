@@ -21,6 +21,7 @@ To get started, clone the repository and install the dependencies for both the b
 ```bash
 git clone https://github.com/JScult/JEWC.git
 cd JEWC
+---
 
 ## Backend Setup
 
