@@ -1,4 +1,5 @@
 import NavBar from './components/navBar';
+import Main from './components/main';
 import WelcomeSection from './components/welcomeSection';
 import GuideSection from './components/guideSection';
 import RegisterTimeSection from './components/registerTimeSection';
@@ -8,13 +9,14 @@ import Footer from './components/footer';
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      <NavBar />
-      <main className="flex-1">
+    <NavBar></NavBar>
+      <Main></Main>
         <WelcomeSection />
-        <GuideSection />
+       
         <RegisterTimeSection />
+        <GuideSection />
         <Ticket />
-      </main>
+      
       <Footer />
     </div>
   );
