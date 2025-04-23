@@ -1,0 +1,31 @@
+@keyframes flip {
+    0% {
+      transform: perspective(400px) rotateX(0deg);
+      opacity: 1;
+      background-color: #BD1829;
+    }
+    40% {
+      transform: perspective(400px) rotateX(-90deg);
+      opacity: 0.6;
+      background-color: #a11523;
+    }
+    50% {
+      transform: perspective(400px) rotateX(-90deg);
+      opacity: 0.4;
+      background-color: #a11523;
+    }
+    60% {
+      transform: perspective(400px) rotateX(-90deg);
+      opacity: 0.4;
+      background-color: #BD1829;
+    }
+    100% {
+      transform: perspective(400px) rotateX(0deg);
+      opacity: 1;
+      background-color: #BD1829;
+    }
+  }
+  
+  .flip {
+    animation: flip 0.8s ease-in-out;
+  }
