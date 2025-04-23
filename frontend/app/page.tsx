@@ -1,9 +1,9 @@
-import Main from './components/main';
-import WelcomeSection from './components/welcomeSection';
-import GuideSection from './components/guideSection';
-import RegisterTimeSection from './components/registerTimeSection';
-import Ticket from './components/ticket';
-import Sponsors from './components/Sponsors';
+import Main from './components/HomePage/main';
+import WelcomeSection from './components/HomePage/welcomeSection';
+import GuideSection from './components/HomePage/guideSection';
+import RegisterTimeSection from './components/HomePage/registerTimeSection';
+import Ticket from './components/HomePage/ticket';
+import Sponsors from './components/HomePage/Sponsors';
 
 export default function Home() {
   return (
