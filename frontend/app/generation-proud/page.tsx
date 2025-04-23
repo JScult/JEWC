@@ -16,9 +16,9 @@ function page() {
 </h2>
     </div>
     <div className='flex flex-col space-y-5'>
-        <Image src="/generation/img.png" alt="Logo 1" height={1000} width={1000} className="h-[80%]  items-center justify-between ml-6 w-auto" />
-        <Image src="/generation/ima.png" alt="Logo 1" height={1000} width={1000} className="h-[80%]  items-center justify-between ml-6 w-auto" />
-        <Image src="/generation/image.png" alt="Logo 1" height={1000} width={1000} className="h-[80%]  items-center justify-between ml-6 w-auto" />
+        <Image src="/generation/img.png" alt="Logo 1" height={1000} width={1000} className="h-[60%] px-6 items-center justify-between ml-6 w-auto" />
+        <Image src="/generation/ima.png" alt="Logo 1" height={1000} width={1000} className="h-[60%] px-6 items-center justify-between ml-6 w-auto" />
+        <Image src="/generation/image.png" alt="Logo 1" height={1000} width={1000} className="h-[60%] px-6 items-center justify-between ml-6 w-auto" />
 
     </div>
     </div>
