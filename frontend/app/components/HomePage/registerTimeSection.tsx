@@ -22,7 +22,6 @@ export default function RegisterTimeSection() {
     };
   };
 
-  // Render a static initial state for SSR
   const [timeLeft, setTimeLeft] = useState({
     days: '--',
     hours: '--',
@@ -33,7 +32,6 @@ export default function RegisterTimeSection() {
   const [prevTimeLeft, setPrevTimeLeft] = useState(timeLeft);
 
   useEffect(() => {
-    // Update the timer dynamically on the client
     const timer = setInterval(() => {
       const newTimeLeft = calculateTimeLeft();
       setPrevTimeLeft(timeLeft);
@@ -44,7 +42,7 @@ export default function RegisterTimeSection() {
   }, [timeLeft]);
 
   const formatNumber = (num: number | string) =>
-    num.toString().padStart(3, '0');
+    num.toString().padStart(2, '0');
 
   const shouldFlip = (key: keyof typeof timeLeft) =>
     timeLeft[key] !== prevTimeLeft[key];
