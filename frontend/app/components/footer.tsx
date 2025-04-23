@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Footer() {
     return (
         <div
-            className="h-[50vh] bg-cover bg-center bg-fixed px-4 sm:px-6 md:px-8 lg:px-16 py-4 flex flex-col justify-between"
+            className="h-[80vh] lg:h-[60vh] bg-cover bg-center bg-fixed px-4 sm:px-6 md:px-8 lg:px-16 py-4 flex flex-col justify-between"
             style={{
                 backgroundImage: `linear-gradient(95deg, rgba(189, 24, 41, 0.4) 10%, rgba(109, 82, 149, 0.5) 40%), url('/Assets/monastirmosque.jpg')`,
             }}
