@@ -27,7 +27,7 @@ export default function Page() {
         <Image
           width={500}
           height={500}
-          src="/Assets/adminLogin.jpg"
+          src="/Assets/jewcauth.png"
           alt="Image"
           className="absolute inset-0 h-full w-full object-cover z-0"
         />

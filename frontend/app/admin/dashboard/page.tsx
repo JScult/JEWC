@@ -26,6 +26,9 @@ import {
   Trash2,
   ChevronLeft,
   ChevronRight,
+  Users,
+  Globe,
+  MapPin,
 } from "lucide-react";
 import {
   Dialog,
@@ -34,6 +37,18 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const Page = () => {
   // State for participants, modal, and filters
@@ -89,6 +104,40 @@ const Page = () => {
     "Caribbean Community",
     "Nordic Alliance",
   ];
+
+  // Example data for charts
+  const participantsData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [
+      {
+        label: "Participants",
+        data: [500, 700, 800, 1000, 1200, 1500],
+        backgroundColor: "rgba(59, 130, 246, 0.5)", // Blue
+      },
+    ],
+  };
+
+  const confederationsData = {
+    labels: ["EU", "AU", "AS", "SA", "NA"],
+    datasets: [
+      {
+        label: "Confederations",
+        data: [20, 15, 25, 10, 30],
+        backgroundColor: "rgba(34, 197, 94, 0.5)", // Green
+      },
+    ],
+  };
+
+  const placesData = {
+    labels: ["Available", "Occupied"],
+    datasets: [
+      {
+        label: "Places",
+        data: [500, 4500],
+        backgroundColor: ["rgba(234, 179, 8, 0.5)", "rgba(251, 113, 133, 0.5)"], // Yellow and Red
+      },
+    ],
+  };
 
   // Handle input changes in the add participant form
   const handleInputChange = (e) => {
@@ -177,17 +226,46 @@ const Page = () => {
     <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        {/* Participants Card */}
         <div className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-gray-500 text-sm sm:text-base">The participants</h2>
-          <p className="text-2xl sm:text-3xl font-bold">5000</p>
+          <div className="flex items-center space-x-4 mb-4">
+            <div className="p-3 bg-blue-100 rounded-full">
+              <Users className="w-6 h-6 text-blue-500" />
+            </div>
+            <div>
+              <h2 className="text-gray-500 text-sm sm:text-base">The participants</h2>
+              <p className="text-2xl sm:text-3xl font-bold">5000</p>
+            </div>
+          </div>
+          <Bar data={participantsData} options={{ responsive: true }} />
         </div>
+
+        {/* Confederations Card */}
         <div className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-gray-500 text-sm sm:text-base">Confederations</h2>
-          <p className="text-2xl sm:text-3xl font-bold">100</p>
+          <div className="flex items-center space-x-4 mb-4">
+            <div className="p-3 bg-green-100 rounded-full">
+              <Globe className="w-6 h-6 text-green-500" />
+            </div>
+            <div>
+              <h2 className="text-gray-500 text-sm sm:text-base">Confederations</h2>
+              <p className="text-2xl sm:text-3xl font-bold">100</p>
+            </div>
+          </div>
+          <Bar data={confederationsData} options={{ responsive: true }} />
         </div>
+
+        {/* Places Available Card */}
         <div className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-gray-500 text-sm sm:text-base">Places available</h2>
-          <p className="text-2xl sm:text-3xl font-bold">500</p>
+          <div className="flex items-center space-x-4 mb-4">
+            <div className="p-3 bg-yellow-100 rounded-full">
+              <MapPin className="w-6 h-6 text-yellow-500" />
+            </div>
+            <div>
+              <h2 className="text-gray-500 text-sm sm:text-base">Places available</h2>
+              <p className="text-2xl sm:text-3xl font-bold">500</p>
+            </div>
+          </div>
+          <Bar data={placesData} options={{ responsive: true }} />
         </div>
       </div>
 

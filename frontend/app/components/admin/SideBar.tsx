@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Home,
@@ -15,12 +16,17 @@ const Sidebar: React.FC = () => {
     <div className="fixed left-0 top-0 h-screen w-16 md:w-64 bg-gradient-to-b from-purple-600 to-red-600 text-white flex flex-col items-center py-4 shadow-lg">
       {/* Logo and Title */}
       <div className="flex items-center mb-8">
-        <div className="w-8 h-8 bg-white rounded-full mr-2 md:mr-3" />
+        <div className="w-12 h-auto rounded-full mr-2 md:mr-3" >
+            <Image src="/Assets/jewc.png" width={500} height={500} alt="Logo" className="w-full h-full rounded-full" />
+            </div>
         <div className="hidden md:block">
           <h1 className="text-lg font-bold">JEWC25</h1>
           <p className="text-xs">Heritage Meets Innovation</p>
         </div>
+        
+
       </div>
+      <hr className="hidden md:block w-52  bg-white mb-6" />
 
       {/* Navigation Items */}
       <nav className="flex flex-col space-y-4 w-full">
