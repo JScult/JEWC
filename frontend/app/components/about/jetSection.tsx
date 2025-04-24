@@ -35,12 +35,12 @@ const JetSection = () => {
           , agronomy, and design.”
           </p>
           <a
-            href="https://example.com"
+            href="https://www.jetunisie.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#BD1829] hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-full transition"
           >
-            Check JE Global ↗
+            Check JE Tunisia 
           </a>
         </div>
       </div>
