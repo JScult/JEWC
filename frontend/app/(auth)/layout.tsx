@@ -11,7 +11,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <div
                     className="absolute inset-0 z-10  bg-no-repeat bg-cover opacity-30"
                     style={{
-                        backgroundImage: " linear-gradient(95deg, rgba(189, 44, 81, 0.7) 70%, rgba(109, 82, 149, 1) 100%),url('/Assets/images/(auth)-img.png')",
+                        backgroundImage: " linear-gradient(95deg, rgba(189, 44, 81, 0.7) 70%, rgba(109, 82, 149, 1) 100%),url('/Assets/images/auth-img.png')",
                         backgroundPosition: "right center",
                         backgroundSize: "cover",
                     }}

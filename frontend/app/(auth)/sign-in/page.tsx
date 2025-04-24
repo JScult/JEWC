@@ -1,7 +1,7 @@
 'use client';
 
 // import React, {useState} from 'react';
-import GoogleButton from '@/app/components/auth/GoogleButton';
+import GoogleButton from '@/components/auth/GoogleButton';
 import Link from 'next/link';
 // import Stepper from "../components/(auth)/Stepper"
 
