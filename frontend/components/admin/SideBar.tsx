@@ -1,5 +1,8 @@
+"use client"; // Add this directive at the top
+
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation"; // Import usePathname
+import Link from "next/link"; // Import Link from next/link
 import {
   Home,
   Users,
@@ -11,6 +14,10 @@ import {
 } from "lucide-react";
 
 const Sidebar: React.FC = () => {
+  const pathname = usePathname(); // Get the current path
+
+  const isActive = (path: string) => pathname === path; // Check if the path is active
+
   return (
     <div className="fixed left-0 top-0 h-screen w-16 md:w-64 bg-gradient-to-b from-purple-600 to-red-600 text-white flex flex-col items-center py-4 shadow-lg">
       {/* Logo and Title */}
@@ -27,64 +34,78 @@ const Sidebar: React.FC = () => {
 
       {/* Navigation Items */}
       <nav className="flex flex-col space-y-4 w-full">
-        <Button
-          variant="ghost"
-          className="flex justify-start items-center w-full px-2 md:px-4 py-2 text-white hover:bg-white/20 rounded-r-full"
+        <Link
+          href="/admin/dashboard"
+          className={`flex justify-start items-center w-full px-2 md:px-4 py-2 rounded-r-full ${
+            isActive("/admin/dashboard") ? "bg-white/20 text-white" : "text-white hover:bg-white/20"
+          }`}
         >
           <Home className="w-6 h-6 md:mr-3" />
           <span className="hidden md:block text-sm">Statistics</span>
-        </Button>
+        </Link>
 
-        <Button
-          variant="ghost"
-          className="flex justify-start items-center w-full px-2 md:px-4 py-2 text-white bg-white/20 rounded-r-full"
+        <Link
+          href="/admin/dashboard/participants"
+          className={`flex justify-start items-center w-full px-2 md:px-4 py-2 rounded-r-full ${
+            isActive("/admin/dashboard/participants") ? "bg-white/20 text-white" : "text-white hover:bg-white/20"
+          }`}
         >
           <Users className="w-6 h-6 md:mr-3" />
           <span className="hidden md:block text-sm">Participants</span>
-        </Button>
+        </Link>
 
-        <Button
-          variant="ghost"
-          className="flex justify-start items-center w-full px-2 md:px-4 py-2 text-white hover:bg-white/20 rounded-r-full"
+        <Link
+          href="/admin/dashboard/events"
+          className={`flex justify-start items-center w-full px-2 md:px-4 py-2 rounded-r-full ${
+            isActive("/admin/dashboard/events") ? "bg-white/20 text-white" : "text-white hover:bg-white/20"
+          }`}
         >
           <Edit className="w-6 h-6 md:mr-3" />
           <span className="hidden md:block text-sm">Activities</span>
-        </Button>
+        </Link>
 
-        <Button
-          variant="ghost"
-          className="flex justify-start items-center w-full px-2 md:px-4 py-2 text-white hover:bg-white/20 rounded-r-full"
+        <Link
+          href="/admin/dashboard/confederations"
+          className={`flex justify-start items-center w-full px-2 md:px-4 py-2 rounded-r-full ${
+            isActive("/admin/dashboard/confederations") ? "bg-white/20 text-white" : "text-white hover:bg-white/20"
+          }`}
         >
           <FileText className="w-6 h-6 md:mr-3" />
           <span className="hidden md:block text-sm">Confederations</span>
-        </Button>
+        </Link>
 
-        <Button
-          variant="ghost"
-          className="flex justify-start items-center w-full px-2 md:px-4 py-2 text-white hover:bg-white/20 rounded-r-full"
+        <Link
+          href="/admin/dashboard/rooms"
+          className={`flex justify-start items-center w-full px-2 md:px-4 py-2 rounded-r-full ${
+            isActive("/admin/dashboard/rooms") ? "bg-white/20 text-white" : "text-white hover:bg-white/20"
+          }`}
         >
           <Eye className="w-6 h-6 md:mr-3" />
           <span className="hidden md:block text-sm">Rooms</span>
-        </Button>
+        </Link>
 
-        <Button
-          variant="ghost"
-          className="flex justify-start items-center w-full px-2 md:px-4 py-2 text-white hover:bg-white/20 rounded-r-full"
+        <Link
+          href="/admin/dashboard/zones"
+          className={`flex justify-start items-center w-full px-2 md:px-4 py-2 rounded-r-full ${
+            isActive("/admin/dashboard/zones") ? "bg-white/20 text-white" : "text-white hover:bg-white/20"
+          }`}
         >
           <Smartphone className="w-6 h-6 md:mr-3" />
           <span className="hidden md:block text-sm">Zones</span>
-        </Button>
+        </Link>
       </nav>
 
       {/* Logout Button */}
       <div className="mt-auto">
-        <Button
-          variant="ghost"
-          className="flex justify-start items-center w-full px-2 md:px-4 py-2 text-white hover:bg-white/20 rounded-r-full"
+        <Link
+          href="/admin"
+          className={`flex justify-start items-center w-full px-2 md:px-4 py-2 rounded-r-full ${
+            isActive("/admin") ? "bg-white/20 text-white" : "text-white hover:bg-white/20"
+          }`}
         >
           <LogOut className="w-6 h-6 md:mr-3" />
           <span className="hidden md:block text-sm">Log Out</span>
-        </Button>
+        </Link>
       </div>
     </div>
   );
