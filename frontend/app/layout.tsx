@@ -2,7 +2,7 @@
 'use client';
 
 import { Figtree } from "next/font/google";
-import { usePathname } from "next/navigation"; // import this
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import "./globals.css";
 import Navbar from "../components/navBar";
@@ -14,23 +14,25 @@ const figtree = Figtree({
   subsets: ["latin"],
 });
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  const [isAdminRoute, setIsAdminRoute] = useState(false);
+  const [isExcludedRoute, setIsExcludedRoute] = useState(false);
 
   useEffect(() => {
-    setIsAdminRoute(pathname.startsWith("/admin"));
+    // Exclude routes like /admin and /complete-form from the root layout
+    setIsExcludedRoute(
+      pathname.startsWith("/admin") || pathname.startsWith("/complete-form")
+    );
   }, [pathname]);
 
   return (
     <html lang="en">
       <body className={`${figtree.variable} antialiased`}>
-        {isAdminRoute ? (
+        {isExcludedRoute ? (
           children
         ) : (
           <>
