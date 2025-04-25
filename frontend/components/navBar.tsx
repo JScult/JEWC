@@ -22,7 +22,7 @@ export default function Navbar() {
     <>
       {/* Main Navbar */}
       <nav className="fixed w-full top-4 z-50 text-">
-        <div className="max-w-2xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto px-4"> {/* Increased width from max-w-2xl to max-w-6xl */}
           <div className={`bg-none rounded-full md:bg-white shadow-md ${isOpen ? 'hidden' : ''}`}>
             <div className="flex justify-between h-16 items-center px-6">
               {/* Mobile menu button */}
@@ -48,9 +48,11 @@ export default function Navbar() {
                 >
                   Sign In
                 </button>
-                <a href="#" className="text-gray-700 hover:text-gray-900 px-3 py-2">Our Global Network</a>
-                <a href="#" className="text-gray-700 hover:text-gray-900 px-3 py-2">Our Collaborators</a>
-                <a href="#" className="text-gray-700 hover:text-gray-900 px-3 py-2">Contact Us</a>
+                <a href="/generation-proud" className="text-gray-700 hover:text-gray-900 px-3 py-2">Our Global Network</a>
+                <a href="/partners" className="text-gray-700 hover:text-gray-900 px-3 py-2">Our Collaborators</a>
+                <a href="/contact-us" className="text-gray-700 hover:text-gray-900 px-3 py-2">Contact Us</a>
+                <a href="/about-us" className="text-gray-700 hover:text-gray-900 px-3 py-2">About Us</a>
+                <a href="/faq" className="text-gray-700 hover:text-gray-900 px-3 py-2">FAQ</a>
               </div>
             </div>
           </div>
@@ -73,10 +75,12 @@ export default function Navbar() {
             </button>
           </div>
           <div className="p-4 space-y-4">
-            
-            <a href="#" className="block px-4 py-2 text-gray-700 rounded hover:bg-gray-100">Our Global Network</a>
-            <a href="#" className="block px-4 py-2 text-gray-700 rounded hover:bg-gray-100">Our Collaborators</a>
-            <a href="#" className="block px-4 py-2 text-gray-700 rounded hover:bg-gray-100">Contact Us</a>
+            <a href="/generation-proud" className="block px-4 py-2 text-gray-700 rounded hover:bg-gray-100">Our Global Network</a>
+            <a href="/partners" className="block px-4 py-2 text-gray-700 rounded hover:bg-gray-100">Our Collaborators</a>
+            <a href="/contact-us" className="block px-4 py-2 text-gray-700 rounded hover:bg-gray-100">Contact Us</a>
+            <a href="/about-us" className="block px-4 py-2 text-gray-700 rounded hover:bg-gray-100">About Us</a>
+           
+            <a href="/faq" className="block px-4 py-2 text-gray-700 rounded hover:bg-gray-100">FAQ</a> {/* Added FAQ */}
             <button 
              onClick={() => {
               setIsSignInOpen(true);
