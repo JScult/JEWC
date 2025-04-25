@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import Collaborators from '../components/partners/Collaborators';
+import Collaborators from '../../components/partners/Collaborators';
 function page() {
   return (
     <div><div

@@ -1,5 +1,5 @@
-import { SectionHeader } from "@/app/components/faq/section-header";
-import { FAQItem } from "@/app/components/faq/faq-item";
+import { SectionHeader } from "@/components/faq/section-header";
+import { FAQItem } from "@/components/faq/faq-item";
 import { Accordion } from "@/components/ui/accordion";
 import { Search } from "lucide-react";
 

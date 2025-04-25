@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import ContactForm from "../components/contact/ContactForm";
-import Map from "../components/contact/Maps";
+import ContactForm from "../../components/contact/ContactForm";
+import Map from "../../components/contact/Maps";
 export default function ContactUs() {
     return (
         <div>

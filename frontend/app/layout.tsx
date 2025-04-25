@@ -5,9 +5,9 @@ import { Figtree } from "next/font/google";
 import { usePathname } from "next/navigation"; // import this
 import { useEffect, useState } from "react";
 import "./globals.css";
-import Navbar from "./components/navBar";
-import NewLetter from "./components/NewLetter";
-import Footer from "./components/footer";
+import Navbar from "../components/navBar";
+import NewLetter from "../components/NewLetter";
+import Footer from "../components/footer";
 
 const figtree = Figtree({
   variable: "--font-figtree",

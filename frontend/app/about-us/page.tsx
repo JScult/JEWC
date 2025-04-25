@@ -1,7 +1,7 @@
-import WhoAreWeSection from "../components/about/whoAreWeSection"
-import AboutJewc from "../components/about/aboutJewc"
-import JegSection from "../components/about/jegSection"
-import JetSection from "../components/about/jetSection"
+import WhoAreWeSection from "../../components/about/whoAreWeSection"
+import AboutJewc from "../../components/about/aboutJewc"
+import JegSection from "../../components/about/jegSection"
+import JetSection from "../../components/about/jetSection"
 
 
 
