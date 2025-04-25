@@ -89,8 +89,8 @@ const Page = () => {
   const [filterName, setFilterName] = useState("");
 
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
-  const [confirmAction, setConfirmAction] = useState(null);
-  const [selectedParticipantId, setSelectedParticipantId] = useState(null);
+  const [confirmAction, setConfirmAction] = useState<"approve" | "delete" | null>(null);
+  const [selectedParticipantId, setSelectedParticipantId] = useState<string | null>(null);
 
   const confederations = [
     "European Union",
@@ -140,21 +140,33 @@ const Page = () => {
   };
 
   // Handle input changes in the add participant form
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setNewParticipant((prev) => ({ ...prev, [name]: value }));
   };
 
   // Handle confederation select for add participant
-  const handleConfederationChange = (value) => {
+  const handleConfederationChange = (value: string) => {
     setNewParticipant((prev) => ({ ...prev, confederation: value }));
   };
 
   // Handle add participant form submission
-  const handleAddParticipant = (e) => {
+  interface Participant {
+    id: string;
+    email: string;
+    name: string;
+    confederation: string;
+    phone: string;
+    payDate: string;
+    firstPayDate: string;
+    status: string;
+  }
+
+
+  const handleAddParticipant = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newId = `${(participants.length + 1).toString().padStart(2, "0")}.`;
-    const participantToAdd = {
+    const participantToAdd: Participant = {
       ...newParticipant,
       id: newId,
     };
@@ -171,12 +183,17 @@ const Page = () => {
     setIsModalOpen(false);
   };
 
+  const handleEditParticipant = (participantId: string) => {
+    console.log(`Edit participant with ID: ${participantId}`);
+    // Add your edit logic here
+  };
+
   // Handle filter changes
-  const handleFilterConfederationChange = (value) => {
+  const handleFilterConfederationChange = (value: string) => {
     setFilterConfederation(value);
   };
 
-  const handleFilterNameChange = (e) => {
+  const handleFilterNameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFilterName(e.target.value);
   };
 
@@ -198,7 +215,12 @@ const Page = () => {
   });
 
   // Open confirmation dialog
-  const openConfirmDialog = (action, participantId) => {
+  interface ConfirmDialogAction {
+    action: "approve" | "delete";
+    participantId: string;
+  }
+
+  const openConfirmDialog = (action: ConfirmDialogAction["action"], participantId: ConfirmDialogAction["participantId"]) => {
     setConfirmAction(action);
     setSelectedParticipantId(participantId);
     setIsConfirmDialogOpen(true);
