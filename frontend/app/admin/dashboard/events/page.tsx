@@ -40,6 +40,7 @@ export default function EventsPage() {
     day: "1",
     time: "",
   });
+  const [editingEventId, setEditingEventId] = useState<number | null>(null);
 
   const handleAddEvent = () => {
     if (
@@ -49,24 +50,52 @@ export default function EventsPage() {
       newEvent.places &&
       newEvent.panelists
     ) {
-      setEvents([
-        ...events,
-        {
-          id: events.length + 1,
-          name: newEvent.name,
-          time: newEvent.time,
-          room: newEvent.room,
-          places: newEvent.places,
-          panelists: newEvent.panelists,
-          day: newEvent.day,
-        },
-      ]);
+      if (editingEventId !== null) {
+        // Update existing event
+        setEvents(
+          events.map((event) =>
+            event.id === editingEventId
+              ? { ...event, ...newEvent, id: editingEventId }
+              : event
+          )
+        );
+        setEditingEventId(null);
+      } else {
+        // Add new event
+        setEvents([
+          ...events,
+          {
+            id: events.length + 1,
+            name: newEvent.name,
+            time: newEvent.time,
+            room: newEvent.room,
+            places: newEvent.places,
+            panelists: newEvent.panelists,
+            day: newEvent.day,
+          },
+        ]);
+      }
       setNewEvent({ name: "", places: "", panelists: "", room: "", day: "1", time: "" });
     }
   };
 
   const handleDeleteEvent = (id: number) => {
     setEvents(events.filter((event) => event.id !== id));
+  };
+
+  const handleEditEvent = (id: number) => {
+    const eventToEdit = events.find((event) => event.id === id);
+    if (eventToEdit) {
+      setNewEvent({
+        name: eventToEdit.name,
+        places: eventToEdit.places,
+        panelists: eventToEdit.panelists,
+        room: eventToEdit.room,
+        day: eventToEdit.day,
+        time: eventToEdit.time,
+      });
+      setEditingEventId(id);
+    }
   };
 
   // Filter events based on the current day
@@ -117,7 +146,11 @@ export default function EventsPage() {
                   <TableCell>{event.panelists}</TableCell>
                   <TableCell>
                     <div className="flex space-x-2">
-                      <Button variant="outline" size="icon">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => handleEditEvent(event.id)}
+                      >
                         <Pencil className="h-4 w-4 text-red-500" />
                       </Button>
                       <Button
@@ -174,7 +207,7 @@ export default function EventsPage() {
       {/* Add New Activity Form */}
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-lg font-semibold text-red-600 mb-4">
-          Add New Activity
+          {editingEventId ? "Edit Activity" : "Add New Activity"}
         </h2>
         <div className="grid grid-cols-2 gap-4">
           <Input
@@ -244,7 +277,7 @@ export default function EventsPage() {
           className="mt-4 bg-red-600 hover:bg-red-700"
           onClick={handleAddEvent}
         >
-          Add Activity
+          {editingEventId ? "Update Activity" : "Add Activity"}
         </Button>
       </div>
     </div>

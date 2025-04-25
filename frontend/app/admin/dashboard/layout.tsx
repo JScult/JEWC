@@ -22,7 +22,7 @@ export default function RootLayout({
         <Sidebar />
 
         {/* Main content area */}
-        <main className="ml-16 md:ml-64 flex-1 p-4">
+        <main className="ml-8 md:ml-64 flex-1 ">
           {children}
         </main>
       </body>
