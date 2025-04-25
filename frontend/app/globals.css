@@ -1,14 +1,17 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+
+
+
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
 
   @theme inline {
     --radius-sm: calc(var(--radius) - 4px);
@@ -125,3 +128,4 @@
     @apply bg-background text-foreground;
     }
 }
+
