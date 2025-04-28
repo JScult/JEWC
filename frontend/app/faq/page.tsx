@@ -1,7 +1,6 @@
 import { SectionHeader } from "@/components/faq/section-header";
 import { FAQItem } from "@/components/faq/faq-item";
 import { Accordion } from "@/components/ui/accordion";
-import { Search } from "lucide-react";
 
 export default function FAQPage() {
   const faqs = [

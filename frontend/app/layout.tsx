@@ -8,6 +8,7 @@ import "./globals.css";
 import Navbar from "../components/navBar";
 import NewLetter from "../components/NewLetter";
 import Footer from "../components/footer";
+import Chatbot from "@/components/chatbot";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -38,6 +39,7 @@ export default function RootLayout({
           <>
             <Navbar />
             {children}
+            <Chatbot />
             <NewLetter />
             <Footer />
           </>
